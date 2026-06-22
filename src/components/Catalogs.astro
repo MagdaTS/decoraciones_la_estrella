@@ -1,0 +1,180 @@
+---
+/**
+ * Catalog data model — static content, no props needed.
+ *
+ * interface Catalog {
+ *   slug: string;           // URL-safe identifier
+ *   title: string;          // Display name (Spanish)
+ *   cover: string;          // Path to cover WebP in /public/catalogos/previews/
+ *   hover: string;          // Path to page-2 preview WebP for hover cross-fade
+ *   previewPages: string[]; // All page previews (_p1, _p2, _p3) — _p2 used for hover
+ *   pdf: string;            // Path to PDF in /public/catalogos/
+ *   pages: number;          // Total page count
+ *   fileSizeMB: number;     // Compressed file size in MB
+ *   description: string;    // Short Spanish description
+ */
+
+const CATALOGS = [
+  {
+    slug: 'dia-de-muertos',
+    title: 'Día de Muertos',
+    cover: '/catalogos/previews/catalogo-dia-de-muertos.webp',
+    hover: '/catalogos/previews/catalogo-dia-de-muertos_p2.webp',
+    previewPages: [
+      '/catalogos/previews/catalogo-dia-de-muertos_p1.webp',
+      '/catalogos/previews/catalogo-dia-de-muertos_p2.webp',
+      '/catalogos/previews/catalogo-dia-de-muertos_p3.webp',
+    ],
+    pdf: '/catalogos/catalogo-dia-de-muertos.pdf',
+    pages: 20,
+    fileSizeMB: 10.3,
+    description: 'Colección completa de decoraciones para Día de Muertos: arreglos florales, papel picado, iluminación temática y escenografías.',
+  },
+  {
+    slug: 'fiestas-patrias',
+    title: 'Fiestas Patrias',
+    cover: '/catalogos/previews/catalogo-fiestas-patrias.webp',
+    hover: '/catalogos/previews/catalogo-fiestas-patrias_p2.webp',
+    previewPages: [
+      '/catalogos/previews/catalogo-fiestas-patrias_p1.webp',
+      '/catalogos/previews/catalogo-fiestas-patrias_p2.webp',
+      '/catalogos/previews/catalogo-fiestas-patrias_p3.webp',
+    ],
+    pdf: '/catalogos/catalogo-fiestas-patrias.pdf',
+    pages: 27,
+    fileSizeMB: 12.7,
+    description: 'Decoraciones patrias: banderas, guirnaldas tricolores, escudos nacionales, arcos y escenografías para celebraciones mexicanas.',
+  },
+  {
+    slug: 'navideno',
+    title: 'Navideño',
+    cover: '/catalogos/previews/Catalogo-navideño.webp',
+    hover: '/catalogos/previews/Catalogo-navideño_p2.webp',
+    previewPages: [
+      '/catalogos/previews/Catalogo-navideño_p1.webp',
+      '/catalogos/previews/Catalogo-navideño_p2.webp',
+      '/catalogos/previews/Catalogo-navideño_p3.webp',
+    ],
+    pdf: '/catalogos/Catalogo-navideño.pdf',
+    pages: 27,
+    fileSizeMB: 12.2,
+    description: 'Catálogo navideño completo: árboles, nacimientos, esferas, iluminación LED, guirnaldas, muñecos y escenografías invernales.',
+  },
+];
+---
+
+<section
+  id="catalogos"
+  class="py-16 md:py-20 bg-white"
+  aria-labelledby="catalogos-title"
+>
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16 max-w-[700px] mx-auto">
+      <span class="animate-on-scroll inline-block text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-2 px-3 py-1 bg-primary/10 rounded-full">
+        Catálogos
+      </span>
+      <h2 id="catalogos-title" class="animate-on-scroll text-3xl md:text-4xl font-bold text-foreground mb-4">
+        Nuestros catálogos
+      </h2>
+      <p class="animate-on-scroll text-lg text-muted-foreground leading-relaxed">
+        Descarga o previsualiza nuestros catálogos antes de solicitar tu cotización
+      </p>
+    </div>
+
+    <!-- Catalogs Grid -->
+    <div class="catalogs-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {CATALOGS.map((catalog) => (
+        <article class="catalog-card group animate-on-scroll bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+          <!-- Image container with stacked cover + hover preview -->
+          <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
+            <img
+              src={catalog.cover}
+              alt={`Portada del catálogo ${catalog.title}`}
+              class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+              width="800"
+              height="617"
+              loading="lazy"
+            />
+            <img
+              src={catalog.hover}
+              alt={`Vista previa del catálogo ${catalog.title}`}
+              class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
+              width="800"
+              height="617"
+              loading="lazy"
+              data-catalog-preview
+            />
+          </div>
+
+          <!-- Card body -->
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-foreground mb-2">
+              {catalog.title}
+            </h3>
+            <div class="flex gap-3 text-sm text-muted-foreground mb-4">
+              <span class="inline-flex items-center gap-1">
+                <i class="fa-solid fa-file-lines text-xs" aria-hidden="true"></i>
+                {catalog.pages} páginas
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <i class="fa-solid fa-weight-hanging text-xs" aria-hidden="true"></i>
+                {catalog.fileSizeMB} MB
+              </span>
+            </div>
+            <div class="flex gap-3">
+              <a
+                href={encodeURI(catalog.pdf)}
+                download
+                class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-4 rounded-xl transition-colors text-sm"
+              >
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+                Descargar PDF
+              </a>
+              <a
+                href={encodeURI(catalog.pdf)}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 border border-primary/30 text-primary hover:bg-primary/5 font-semibold py-2 px-4 rounded-xl transition-colors text-sm"
+              >
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                Ver vista previa
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+(function() {
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!supportsHover) return;
+
+  var cards = document.querySelectorAll('.catalog-card');
+
+  cards.forEach(function(card) {
+    var cover = card.querySelector('img:not([data-catalog-preview])');
+    var preview = card.querySelector('img[data-catalog-preview]');
+    if (!cover || !preview) return;
+
+    // Skip if preview image failed to load (e.g., 404)
+    if (preview.complete && preview.naturalWidth === 0) return;
+
+    card.addEventListener('mouseenter', function() {
+      cover.style.opacity = '0';
+      preview.style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      cover.style.opacity = '1';
+      preview.style.opacity = '0';
+    });
+  });
+})();
+</script>
