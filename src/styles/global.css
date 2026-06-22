@@ -211,18 +211,3 @@
 .timeline-checkpoint-marker {
   position: relative;
 }
-.timeline-checkpoint-marker::before {
-  content: '';
-  position: absolute;
-  inset: 50% auto auto 50%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid rgba(201, 160, 32, 0.4);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.timeline-checkpoint-marker .shadow-secondary::before,
-.timeline-checkpoint-marker:has(.bg-secondary)::before {
-  border-color: rgba(20, 164, 204, 0.4);
-}
