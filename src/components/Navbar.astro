@@ -1,0 +1,283 @@
+---
+const navLinks = [
+  { href: '#hero', label: 'Inicio' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#catalogos', label: 'Catálogos' },
+  { href: '#proceso', label: 'Proceso' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<nav 
+  id="navbar" 
+  class="fixed top-0 left-0 right-0 z-[1000] bg-white/95 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300"
+  role="navigation" 
+  aria-label="Navegación principal"
+>
+  <!-- ========== MOBILE: Single row ========== -->
+  <div class="flex md:hidden items-center justify-between px-6 h-[60px] max-w-[1200px] mx-auto">
+    <a 
+      href="#hero" 
+      class="shrink-0 transition-opacity duration-300 hover:opacity-80"
+      aria-label="Decoraciones La estrella - Inicio"
+    >
+      <img 
+        src="/Logo-decoraciones-sinfondo.png" 
+        alt="Decoraciones La estrella" 
+        class="h-9 object-contain"
+        width="29" 
+        height="35"
+        loading="eager" 
+        fetchpriority="high"
+      >
+    </a>
+    <button 
+      id="navToggle"
+      class="flex flex-col items-center justify-center w-11 h-11 relative"
+      aria-label="Abrir menú de navegación" 
+      aria-expanded="false" 
+      aria-controls="navMenuMobile"
+    >
+      <span class="hamburger w-6 h-0.5 bg-foreground relative transition-all duration-300 before:content-[''] before:absolute before:w-6 before:h-0.5 before:bg-foreground before:transition-all before:duration-300 before:-top-[7px] after:content-[''] after:absolute after:w-6 after:h-0.5 after:bg-foreground after:transition-all after:duration-300 after:top-[7px]"></span>
+    </button>
+  </div>
+
+  <!-- ========== DESKTOP: Two rows ========== -->
+  <!-- Row 1: Logo centered -->
+  <div class="hidden md:flex justify-center pt-3 pb-1 max-w-[1200px] mx-auto">
+    <a 
+      href="#hero" 
+      class="transition-opacity duration-300 hover:opacity-80"
+      aria-label="Decoraciones La estrella - Inicio"
+    >
+      <img 
+        src="/Logo-horizontal.png" 
+        alt="Decoraciones La estrella" 
+        class="h-20 object-contain"
+        width="178" 
+        height="80"
+        loading="eager" 
+        fetchpriority="high"
+      >
+    </a>
+  </div>
+
+  <!-- Row 2: Nav links + CTA -->
+  <div class="hidden md:flex items-center justify-center gap-8 pb-2 max-w-[1200px] mx-auto">
+    <ul 
+      id="navLinksDesktop"
+      class="flex items-center gap-6" 
+      role="menubar"
+    >
+      {navLinks.map(link => (
+        <li role="none">
+          <a 
+            href={link.href} 
+            class="nav-link text-[0.95rem] font-medium text-foreground transition-colors duration-300 relative py-2 hover:text-primary after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+            role="menuitem"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a 
+      href="#contacto" 
+      class="bg-primary hover:bg-primary-dark text-foreground font-semibold py-2 px-5 text-sm rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+    >
+      Solicitar Propuesta
+    </a>
+  </div>
+</nav>
+
+<!-- ========== MOBILE OVERLAY ========== -->
+<div 
+  id="navMenuMobile" 
+  class="nav-overlay fixed inset-0 bg-white z-[1001] flex flex-col items-center justify-center gap-10 transition-all duration-300 ease-out opacity-0 pointer-events-none md:hidden"
+  aria-hidden="true"
+>
+  <!-- Mobile logo -->
+  <img 
+    src="/Logo-horizontal.png" 
+    alt="Decoraciones La estrella" 
+    class="h-10 object-contain mb-2"
+    width="71" 
+    height="35"
+  >
+
+  <!-- Close button -->
+  <button 
+    id="navClose"
+    class="absolute top-4 right-4 w-11 h-11 flex items-center justify-center rounded-lg hover:bg-black/5 transition-colors duration-200"
+    aria-label="Cerrar menú de navegación"
+  >
+    <svg class="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile nav links -->
+  <ul class="flex flex-col items-center gap-8">
+    {navLinks.map(link => (
+      <li>
+        <a 
+          href={link.href} 
+          class="nav-link-mobile text-2xl font-semibold text-foreground transition-colors duration-300 hover:text-primary"
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Mobile CTA -->
+  <a 
+    href="#contacto" 
+    class="bg-primary hover:bg-primary-dark text-foreground font-semibold py-3 px-8 text-lg rounded-xl transition-all duration-300 shadow-lg"
+  >
+    Solicitar Propuesta
+  </a>
+</div>
+
+<!-- Spacer for fixed navbar -->
+<div id="navbarSpacer" class="h-[60px] md:h-[120px]"></div>
+
+<script>
+  (function() {
+    const navbar = document.getElementById('navbar');
+    const navbarSpacer = document.getElementById('navbarSpacer');
+    const navToggle = document.getElementById('navToggle');
+    const navClose = document.getElementById('navClose');
+    const navMenuMobile = document.getElementById('navMenuMobile');
+    const mobileLinks = navMenuMobile.querySelectorAll('.nav-link-mobile');
+
+    // === Sync spacer height with navbar ===
+    function syncSpacer() {
+      if (navbar && navbarSpacer) {
+        navbarSpacer.style.height = navbar.offsetHeight + 'px';
+      }
+    }
+    syncSpacer();
+    window.addEventListener('resize', syncSpacer);
+
+    // === Scroll behavior ===
+    let lastScroll = 0;
+
+    function handleScroll() {
+      var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > 50) {
+        navbar.classList.add('shadow-md');
+      } else {
+        navbar.classList.remove('shadow-md');
+      }
+
+      if (currentScroll > lastScroll && currentScroll > 300) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+
+      lastScroll = currentScroll;
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // === Mobile menu ===
+    function openMenu() {
+      navMenuMobile.classList.add('nav-overlay--open');
+      navMenuMobile.classList.remove('opacity-0', 'pointer-events-none');
+      navMenuMobile.classList.add('opacity-100', 'pointer-events-auto');
+      navMenuMobile.setAttribute('aria-hidden', 'false');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      navMenuMobile.classList.remove('nav-overlay--open');
+      navMenuMobile.classList.add('opacity-0', 'pointer-events-none');
+      navMenuMobile.classList.remove('opacity-100', 'pointer-events-auto');
+      navMenuMobile.setAttribute('aria-hidden', 'true');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    function toggleMenu() {
+      var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    navToggle.addEventListener('click', toggleMenu);
+    navClose.addEventListener('click', closeMenu);
+
+    mobileLinks.forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    });
+
+    // === Active link highlighting ===
+    function updateActiveLink() {
+      var sections = document.querySelectorAll('section[id]');
+      var desktopLinks = document.querySelectorAll('#navLinksDesktop .nav-link');
+
+      if (sections.length === 0) return;
+
+      var navbarHeight = navbar.offsetHeight || 120;
+      var scrollPosition = window.pageYOffset + navbarHeight + 100;
+
+      var currentSection = '';
+
+      sections.forEach(function(section) {
+        var sectionTop = section.offsetTop;
+        var sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      desktopLinks.forEach(function(link) {
+        link.classList.remove('text-primary', 'after:w-full');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('text-primary', 'after:w-full');
+        }
+      });
+    }
+
+    var navTicking = false;
+    window.addEventListener('scroll', function() {
+      if (!navTicking) {
+        window.requestAnimationFrame(function() {
+          updateActiveLink();
+          navTicking = false;
+        });
+        navTicking = true;
+      }
+    }, { passive: true });
+  })();
+</script>
