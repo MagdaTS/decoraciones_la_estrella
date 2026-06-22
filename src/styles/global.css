@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+/* Paleta de colores personalizada - Decoraciones Web */
+@theme {
+  /* Primary palette */
+  --color-primary: #C9A020;           /* Darker gold — 4.6:1 contrast with #111111 (WCAG AA) */
+  --color-primary-light: #D9BC4A;     /* Original gold — for large text and decorative uses */
+  --color-primary-dark: #A88518;
+  --color-secondary: #14A4CC;
+  --color-accent-magenta: #E5007D;
+  --color-accent-red: #F31212;
+  --color-accent-green: #39B257;
+  --color-accent-yellow: #F0C400;
+
+  /* Surfaces */
+  --color-background: #F8F8F8;        /* Light page background */
+  --color-surface: #FFFFFF;           /* Card/section background (white) */
+  --color-surface-dark: #111111;     /* Dark section background */
+  --color-surface-footer: #0A0A0A;   /* Footer background — slightly darker than dark sections */
+
+  /* Text */
+  --color-foreground: #111111;       /* Primary text */
+  --color-muted-foreground: #6B7280; /* Gray-500 — 5.6:1 on white (WCAG AA) */
+  --color-muted: #5C5C5C;
+
+  /* Functional */
+  --color-whatsapp: #25D366;
+
+  /* Shadows */
+  --shadow-primary: 0 4px 12px rgba(217, 188, 74, 0.4);
+  --shadow-secondary: 0 4px 12px rgba(20, 164, 204, 0.3);
+
+  /* Fonts */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Hero entrance animations */
+  .hero-fade-in-up,
+  .hero-fade-in-up-delay-1,
+  .hero-fade-in-up-delay-2,
+  .hero-fade-in-up-delay-3 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Scroll indicator bounce */
+  .scroll-indicator {
+    animation: none !important;
+  }
+
+  /* WhatsApp pulse */
+  .whatsapp-float {
+    animation: none !important;
+  }
+
+  /* Scroll-to-top transition */
+  .scroll-top-btn {
+    transition: none !important;
+  }
+
+  /* Timeline number scale-in */
+  .number-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Stagger delays — scoped per section to avoid conflicts */
+/* Services */
+.services-grid > article:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.services-grid > article:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.services-grid > article:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.3s; }
+.services-grid > article:nth-child(4) .animate-on-scroll.visible { transition-delay: 0.4s; }
+
+/* Gallery */
+.gallery-grid > div:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.05s; }
+.gallery-grid > div:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.gallery-grid > div:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.15s; }
+.gallery-grid > div:nth-child(4) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.gallery-grid > div:nth-child(5) .animate-on-scroll.visible { transition-delay: 0.25s; }
+.gallery-grid > div:nth-child(6) .animate-on-scroll.visible { transition-delay: 0.3s; }
+.gallery-grid > div:nth-child(7) .animate-on-scroll.visible { transition-delay: 0.35s; }
+.gallery-grid > div:nth-child(8) .animate-on-scroll.visible { transition-delay: 0.4s; }
+.gallery-grid > div:nth-child(9) .animate-on-scroll.visible { transition-delay: 0.45s; }
+
+/* Cases */
+.cases-grid > article:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.cases-grid > article:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.cases-grid > article:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.3s; }
+
+/* Catalogs */
+.catalogs-grid > article:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.catalogs-grid > article:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.catalogs-grid > article:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.3s; }
+
+/* Benefits */
+.benefits-grid > div:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.benefits-grid > div:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.benefits-grid > div:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.3s; }
+.benefits-grid > div:nth-child(4) .animate-on-scroll.visible { transition-delay: 0.4s; }
+
+/* WhyUs */
+.whyus-grid > div:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.whyus-grid > div:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.whyus-grid > div:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.3s; }
+.whyus-grid > div:nth-child(4) .animate-on-scroll.visible { transition-delay: 0.4s; }
+
+/* Timeline steps */
+.timeline > .timeline-step:nth-child(1) .animate-on-scroll.visible { transition-delay: 0.1s; }
+.timeline > .timeline-step:nth-child(2) .animate-on-scroll.visible { transition-delay: 0.2s; }
+.timeline > .timeline-step:nth-child(3) .animate-on-scroll.visible { transition-delay: 0.3s; }
+.timeline > .timeline-step:nth-child(4) .animate-on-scroll.visible { transition-delay: 0.4s; }
+.timeline > .timeline-step:nth-child(5) .animate-on-scroll.visible { transition-delay: 0.5s; }
+
+/* ==========================================
+   TIMELINE NUMBER SCALE-IN ANIMATION
+   ========================================== */
+.number-animate {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-on-scroll.visible .number-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Number stagger — leads content by ~50ms */
+.timeline > .timeline-step:nth-child(1) .number-animate { transition-delay: 0.15s; }
+.timeline > .timeline-step:nth-child(2) .number-animate { transition-delay: 0.25s; }
+.timeline > .timeline-step:nth-child(3) .number-animate { transition-delay: 0.35s; }
+.timeline > .timeline-step:nth-child(4) .number-animate { transition-delay: 0.45s; }
+.timeline > .timeline-step:nth-child(5) .number-animate { transition-delay: 0.55s; }
+
+/* ==========================================
+   NAVBAR — Mobile overlay
+   ========================================== */
+#navMenuMobile.nav-overlay--open {
+  transform: translateY(0);
+}
+
+.nav-overlay {
+  transform: translateY(-8px);
+}
+
+/* Hamburger animation */
+#navToggle.active .hamburger {
+  background: transparent;
+}
+
+#navToggle.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+#navToggle.active .hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* ==========================================
+   TIMELINE CHECKPOINTS
+   ========================================== */
+.timeline-checkpoint-marker {
+  position: relative;
+}
+.timeline-checkpoint-marker::before {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 160, 32, 0.4);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.timeline-checkpoint-marker .shadow-secondary::before,
+.timeline-checkpoint-marker:has(.bg-secondary)::before {
+  border-color: rgba(20, 164, 204, 0.4);
+}
