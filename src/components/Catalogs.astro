@@ -14,18 +14,20 @@
  *   description: string;    // Short Spanish description
  */
 
+const BASE = import.meta.env.BASE_URL;
+
 const CATALOGS = [
   {
     slug: 'dia-de-muertos',
     title: 'Día de Muertos',
-    cover: '/catalogos/previews/catalogo-dia-de-muertos.webp',
-    hover: '/catalogos/previews/catalogo-dia-de-muertos_p4.webp',
+    cover: `${BASE}catalogos/previews/catalogo-dia-de-muertos.webp`,
+    hover: `${BASE}catalogos/previews/catalogo-dia-de-muertos_p4.webp`,
     previewPages: [
-      '/catalogos/previews/catalogo-dia-de-muertos_p1.webp',
-      '/catalogos/previews/catalogo-dia-de-muertos_p2.webp',
-      '/catalogos/previews/catalogo-dia-de-muertos_p3.webp',
+      `${BASE}catalogos/previews/catalogo-dia-de-muertos_p1.webp`,
+      `${BASE}catalogos/previews/catalogo-dia-de-muertos_p2.webp`,
+      `${BASE}catalogos/previews/catalogo-dia-de-muertos_p3.webp`,
     ],
-    pdf: '/catalogos/catalogo-dia-de-muertos.pdf',
+    pdf: `${BASE}catalogos/catalogo-dia-de-muertos.pdf`,
     pages: 20,
     fileSizeMB: 10.3,
     description: 'Colección completa de decoraciones para Día de Muertos: arreglos florales, papel picado, iluminación temática y escenografías.',
@@ -33,14 +35,14 @@ const CATALOGS = [
   {
     slug: 'fiestas-patrias',
     title: 'Fiestas Patrias',
-    cover: '/catalogos/previews/catalogo-fiestas-patrias.webp',
-    hover: '/catalogos/previews/catalogo-fiestas-patrias_p4.webp',
+    cover: `${BASE}catalogos/previews/catalogo-fiestas-patrias.webp`,
+    hover: `${BASE}catalogos/previews/catalogo-fiestas-patrias_p4.webp`,
     previewPages: [
-      '/catalogos/previews/catalogo-fiestas-patrias_p1.webp',
-      '/catalogos/previews/catalogo-fiestas-patrias_p2.webp',
-      '/catalogos/previews/catalogo-fiestas-patrias_p3.webp',
+      `${BASE}catalogos/previews/catalogo-fiestas-patrias_p1.webp`,
+      `${BASE}catalogos/previews/catalogo-fiestas-patrias_p2.webp`,
+      `${BASE}catalogos/previews/catalogo-fiestas-patrias_p3.webp`,
     ],
-    pdf: '/catalogos/catalogo-fiestas-patrias.pdf',
+    pdf: `${BASE}catalogos/catalogo-fiestas-patrias.pdf`,
     pages: 27,
     fileSizeMB: 12.7,
     description: 'Decoraciones patrias: banderas, guirnaldas tricolores, escudos nacionales, arcos y escenografías para celebraciones mexicanas.',
@@ -48,14 +50,14 @@ const CATALOGS = [
   {
     slug: 'navideno',
     title: 'Navideño',
-    cover: '/catalogos/previews/catalogo-navideno.webp',
-    hover: '/catalogos/previews/catalogo-navideno_p4.webp',
+    cover: `${BASE}catalogos/previews/catalogo-navideno.webp`,
+    hover: `${BASE}catalogos/previews/catalogo-navideno_p4.webp`,
     previewPages: [
-      '/catalogos/previews/catalogo-navideno_p1.webp',
-      '/catalogos/previews/catalogo-navideno_p2.webp',
-      '/catalogos/previews/catalogo-navideno_p3.webp',
+      `${BASE}catalogos/previews/catalogo-navideno_p1.webp`,
+      `${BASE}catalogos/previews/catalogo-navideno_p2.webp`,
+      `${BASE}catalogos/previews/catalogo-navideno_p3.webp`,
     ],
-    pdf: '/catalogos/catalogo-navideno.pdf',
+    pdf: `${BASE}catalogos/catalogo-navideno.pdf`,
     pages: 27,
     fileSizeMB: 12.2,
     description: 'Catálogo navideño completo: árboles, nacimientos, esferas, iluminación LED, guirnaldas, muñecos y escenografías invernales.',
