@@ -44,6 +44,11 @@ src/components/WhyUs.astro
 # Local dev scripts (tunnel for local preview)
 start-tunnel.ps1
 
+# Agent context files (not for the public repo)
+PROJECT_CONTEXT.md
+propuesta-tecnica.md
+openspec/
+
 # Review artifacts and stray source files in repo root
 # Screenshots from visual QA / design reviews
 verify-*.png
