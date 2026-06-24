@@ -1,0 +1,58 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+preview.err
+preview.log
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# SDD artifacts
+.atl/
+
+# Temporary files (review artifacts, local-only work)
+tmp/
+
+# Heavy asset archive (material no usado en producción, preservar offline)
+assets-archive/
+
+# Tooling artifacts
+.playwright-mcp/
+.vscode/
+scripts/__pycache__/
+
+# Dead source code (WhyUs is not imported anywhere)
+src/components/WhyUs.astro
+
+# Local dev scripts (tunnel for local preview)
+start-tunnel.ps1
+
+# Review artifacts and stray source files in repo root
+# Screenshots from visual QA / design reviews
+verify-*.png
+navbar-desktop-*.png
+gallery-layout-*.png
+catalogs-desktop-*.png
+landscape_gallery.png
+# Stray image files (DJI drones, raw IMG_*) in repo root
+dji_*.jpg
+img_*_view.jpg
+img_1767_*.jpg
+img_5137.jpg
