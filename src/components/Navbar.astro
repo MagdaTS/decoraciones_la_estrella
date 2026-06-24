@@ -1,11 +1,11 @@
 ---
 const navLinks = [
-  { href: '#hero', label: 'Inicio' },
-  { href: '#proyectos', label: 'Proyectos' },
-  { href: '#servicios', label: 'Servicios' },
-  { href: '#catalogos', label: 'Catálogos' },
-  { href: '#proceso', label: 'Proceso' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '/#hero', label: 'Inicio' },
+  { href: '/#proyectos', label: 'Proyectos' },
+  { href: '/#servicios', label: 'Servicios' },
+  { href: '/#catalogos', label: 'Catálogos' },
+  { href: '/#proceso', label: 'Proceso' },
+  { href: '/#contacto', label: 'Contacto' },
 ];
 ---
 
@@ -18,13 +18,13 @@ const navLinks = [
   <!-- ========== MOBILE: Single row ========== -->
   <div class="flex md:hidden items-center justify-between px-6 h-[60px] max-w-[1200px] mx-auto">
     <a 
-      href="#hero" 
+      href="/#hero" 
       class="shrink-0 transition-opacity duration-300 hover:opacity-80"
-      aria-label="Decoraciones La estrella - Inicio"
+      aria-label="Decoraciones La Estrella - Inicio"
     >
       <img 
         src="/Logo-decoraciones-sinfondo.png" 
-        alt="Decoraciones La estrella" 
+        alt="Decoraciones La Estrella" 
         class="h-9 object-contain"
         width="29" 
         height="35"
@@ -47,13 +47,13 @@ const navLinks = [
   <!-- Row 1: Logo centered -->
   <div class="hidden md:flex justify-center pt-3 pb-1 max-w-[1200px] mx-auto">
     <a 
-      href="#hero" 
+      href="/#hero" 
       class="transition-opacity duration-300 hover:opacity-80"
-      aria-label="Decoraciones La estrella - Inicio"
+      aria-label="Decoraciones La Estrella - Inicio"
     >
       <img 
         src="/Logo-horizontal.png" 
-        alt="Decoraciones La estrella" 
+        alt="Decoraciones La Estrella" 
         class="h-20 object-contain"
         width="178" 
         height="80"
@@ -83,7 +83,7 @@ const navLinks = [
       ))}
     </ul>
     <a 
-      href="#contacto" 
+      href="/#contacto" 
       class="bg-primary hover:bg-primary-dark text-foreground font-semibold py-2 px-5 text-sm rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
     >
       Solicitar Propuesta
@@ -100,7 +100,7 @@ const navLinks = [
   <!-- Mobile logo -->
   <img 
     src="/Logo-horizontal.png" 
-    alt="Decoraciones La estrella" 
+    alt="Decoraciones La Estrella" 
     class="h-10 object-contain mb-2"
     width="71" 
     height="35"
@@ -133,7 +133,7 @@ const navLinks = [
 
   <!-- Mobile CTA -->
   <a 
-    href="#contacto" 
+    href="/#contacto" 
     class="bg-primary hover:bg-primary-dark text-foreground font-semibold py-3 px-8 text-lg rounded-xl transition-all duration-300 shadow-lg"
   >
     Solicitar Propuesta
@@ -263,7 +263,7 @@ const navLinks = [
 
       desktopLinks.forEach(function(link) {
         link.classList.remove('text-primary', 'after:w-full');
-        if (link.getAttribute('href') === '#' + currentSection) {
+        if (link.getAttribute('href').split('#')[1] === currentSection) {
           link.classList.add('text-primary', 'after:w-full');
         }
       });

@@ -1,0 +1,303 @@
+---
+---
+
+<section 
+  id="contacto" 
+  class="py-16 md:py-20 bg-surface-dark"
+  aria-labelledby="contacto-title"
+>
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <!-- Contact Info -->
+      <div class="max-w-[500px]">
+        <div class="mb-10">
+          <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-2 px-3 py-1 bg-primary/20 rounded-full">
+            Contacto
+          </span>
+          <h2 id="contacto-title" class="animate-on-scroll text-3xl md:text-4xl font-bold text-white mb-4">
+            Solicita una propuesta personalizada
+          </h2>
+          <p class="animate-on-scroll text-lg text-white/70 leading-relaxed">
+            Cuéntanos sobre tu proyecto y te contactaremos en menos de 24 horas
+          </p>
+        </div>
+        
+        <div class="flex flex-col gap-5 min-w-0">
+          <div class="contact-item flex items-center gap-4 min-w-0">
+            <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-xl text-primary flex-shrink-0">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-sm text-white/60 mb-0.5">Teléfono</span>
+              <span class="text-base text-white font-medium break-words">+52 563 642 9614</span>
+            </div>
+          </div>
+
+          <div class="contact-item flex items-center gap-4 min-w-0">
+            <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-xl text-primary flex-shrink-0">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-sm text-white/60 mb-0.5">Email</span>
+              <a href="mailto:decoracion.laestrella.ventas@gmail.com" class="text-base text-white font-medium break-all hover:text-primary transition-colors duration-200">decoracion.laestrella.ventas@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item flex items-center gap-4 min-w-0">
+            <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-xl text-primary flex-shrink-0">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+            </div>
+            <div class="flex flex-col min-w-0">
+              <span class="text-sm text-white/60 mb-0.5">Horario</span>
+              <span class="text-base text-white font-medium break-words">Lun - Vie: 8:00 - 17:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="animate-on-scroll bg-white rounded-2xl p-8 lg:p-10 shadow-xl">
+        <form 
+          class="flex flex-col gap-5" 
+          action="https://formspree.io/f/xgojenld" 
+          method="POST" 
+          id="contactForm"
+          novalidate
+        >
+          <input
+            type="text"
+            name="_gotcha"
+            class="hp-field"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          >
+          <div class="flex flex-col gap-1.5">
+            <label for="nombre" class="text-sm font-semibold text-foreground">
+              Nombre completo <span class="text-red-600">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              class="form-input px-4 py-2.5 border-2 border-black/8 rounded-lg text-base text-foreground bg-background transition-all duration-200 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(201,160,32,0.15)]"
+              required 
+              placeholder="Tu nombre" 
+              aria-required="true"
+            >
+          </div>
+          
+          <div class="flex flex-col gap-1.5">
+            <label for="empresa" class="text-sm font-semibold text-foreground">
+              Empresa
+            </label>
+            <input 
+              type="text" 
+              id="empresa" 
+              name="empresa" 
+              class="form-input px-4 py-2.5 border-2 border-black/8 rounded-lg text-base text-foreground bg-background transition-all duration-200 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(201,160,32,0.15)]"
+              placeholder="Nombre de tu empresa"
+            >
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="flex flex-col gap-1.5">
+              <label for="telefono" class="text-sm font-semibold text-foreground">
+                Teléfono <span class="text-red-600">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="telefono" 
+                name="telefono" 
+                class="form-input px-4 py-2.5 border-2 border-black/8 rounded-lg text-base text-foreground bg-background transition-all duration-200 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(201,160,32,0.15)]"
+                required 
+                placeholder="+52 XXX XXX XXXX" 
+                aria-required="true"
+              >
+            </div>
+            
+            <div class="flex flex-col gap-1.5">
+              <label for="email" class="text-sm font-semibold text-foreground">
+                Email <span class="text-red-600">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input px-4 py-2.5 border-2 border-black/8 rounded-lg text-base text-foreground bg-background transition-all duration-200 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(201,160,32,0.15)]"
+                required 
+                placeholder="tu@email.com" 
+                aria-required="true"
+              >
+            </div>
+          </div>
+          
+          <div class="flex flex-col gap-1.5">
+            <label for="mensaje" class="text-sm font-semibold text-foreground">
+              ¿Qué necesitas?
+            </label>
+            <textarea 
+              id="mensaje" 
+              name="mensaje" 
+              class="form-input px-4 py-2.5 border-2 border-black/8 rounded-lg text-base text-foreground bg-background transition-all duration-200 focus:outline-none focus:border-primary focus:shadow-[0_0_0_3px_rgba(201,160,32,0.15)] resize-y min-h-[120px]"
+              rows="4" 
+              placeholder="Cuéntanos sobre tu proyecto, espacio, fecha estimada..."
+            ></textarea>
+          </div>
+          
+          <div class="flex flex-col gap-1.5">
+            <button 
+              type="submit" 
+              class="bg-primary hover:bg-primary-dark text-foreground font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 w-full"
+              id="submitBtn"
+            >
+              <span class="btn-text">Quiero una propuesta</span>
+              <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Enviando...</span>
+            </button>
+          </div>
+          
+          <div 
+            class="form-message hidden px-4 py-2.5 rounded-lg text-sm font-medium" 
+            id="formMessage" 
+            role="status" 
+            aria-live="polite"
+          ></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  (function() {
+    const formEl = document.getElementById('contactForm') as HTMLFormElement | null;
+    const btnEl = document.getElementById('submitBtn') as HTMLButtonElement | null;
+    const msgEl = document.getElementById('formMessage') as HTMLDivElement | null;
+    if (!formEl || !btnEl || !msgEl) return;
+
+    const form: HTMLFormElement = formEl;
+    const submitBtn: HTMLButtonElement = btnEl;
+    const formMessage: HTMLDivElement = msgEl;
+
+    const btnText = submitBtn.querySelector<HTMLElement>('.btn-text');
+    const btnLoading = submitBtn.querySelector<HTMLElement>('.btn-loading');
+
+    function showLoading() {
+      if (btnText) btnText.classList.add('hidden');
+      if (btnLoading) btnLoading.classList.remove('hidden');
+      submitBtn.disabled = true;
+    }
+
+    function hideLoading() {
+      if (btnText) btnText.classList.remove('hidden');
+      if (btnLoading) btnLoading.classList.add('hidden');
+      submitBtn.disabled = false;
+    }
+
+    function showMessage(type: 'success' | 'error', text: string) {
+      formMessage.className = 'form-message px-4 py-2.5 rounded-lg text-sm font-medium ' + type;
+      if (type === 'success') {
+        formMessage.classList.add('bg-green/10', 'text-green-700', 'border', 'border-green/20');
+      } else if (type === 'error') {
+        formMessage.classList.add('bg-red/10', 'text-red-700', 'border', 'border-red/20');
+      }
+      formMessage.textContent = text;
+      formMessage.classList.remove('hidden');
+    }
+
+    function hideMessage() {
+      formMessage.className = 'form-message hidden px-4 py-2.5 rounded-lg text-sm font-medium';
+      formMessage.textContent = '';
+    }
+
+    function validateEmail(email: string): boolean {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function validatePhone(phone: string): boolean {
+      const re = /^[\+\d\s\-\(\)]{10,20}$/;
+      return re.test(phone);
+    }
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      hideMessage();
+
+      // Honeypot anti-spam: silent abort if filled (bots only)
+      const honeypot = form.querySelector<HTMLInputElement>('input[name="_gotcha"]')?.value || '';
+      if (honeypot.trim() !== '') {
+        hideLoading();
+        return;
+      }
+
+      const nombre = ((form.querySelector('#nombre') as HTMLInputElement)?.value || '').trim();
+      const telefono = ((form.querySelector('#telefono') as HTMLInputElement)?.value || '').trim();
+      const email = ((form.querySelector('#email') as HTMLInputElement)?.value || '').trim();
+
+      if (!nombre) {
+        showMessage('error', 'Por favor ingresa tu nombre.');
+        return;
+      }
+
+      if (!telefono) {
+        showMessage('error', 'Por favor ingresa tu teléfono.');
+        return;
+      }
+
+      if (!validatePhone(telefono)) {
+        showMessage('error', 'Por favor ingresa un teléfono válido.');
+        return;
+      }
+
+      if (!email) {
+        showMessage('error', 'Por favor ingresa tu email.');
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        showMessage('error', 'Por favor ingresa un email válido.');
+        return;
+      }
+
+      showLoading();
+
+      // Ensure action is a string; fall back to current page URL if not set
+      const action = form.getAttribute('action') ?? window.location.href;
+
+      // Real submission
+      const formData = new FormData(form);
+      fetch(action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(response) {
+        hideLoading();
+        if (response.ok) {
+          showMessage('success', '¡Gracias! Tu mensaje ha sido enviado. Te contactaremos en menos de 24 horas.');
+          form.reset();
+        } else {
+          showMessage('error', 'Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+        }
+      })
+      .catch(function() {
+        hideLoading();
+        showMessage('error', 'Hubo un error de conexión. Por favor intenta de nuevo.');
+      });
+    });
+  })();
+</script>

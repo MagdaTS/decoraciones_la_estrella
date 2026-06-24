@@ -7,7 +7,6 @@ import Services from '../components/Services.astro';
 import Gallery from '../components/Gallery.astro';
 import Benefits from '../components/Benefits.astro';
 import Process from '../components/Process.astro';
-// import Cases from '../components/Cases.astro';
 import Catalogs from '../components/Catalogs.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -16,16 +15,45 @@ import ScrollTop from '../components/ScrollTop.astro';
 ---
 
 <Layout>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Decoraciones La Estrella",
+        "description": "Especialistas en decoración temática para centros comerciales, plazas y espacios públicos. Servicio llave en mano.",
+        "url": "https://decoracioneslaestrella.com",
+        "image": "https://decoracioneslaestrella.com/Logo-decoraciones-sinfondo.png",
+        "telephone": "+52 563 642 9614",
+        "email": "decoracion.laestrella.ventas@gmail.com",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Dr. Gustavo Baz No. 19",
+            "addressCountry": "MX",
+            "addressLocality": "San Francisco Soyaniquilpan",
+            "addressRegion": "Estado de México",
+            "postalCode": "54280"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "16:00"
+        },
+        "serviceType": ["Decoración de centros comerciales", "Decoración de plazas y espacios públicos", "Decoración por temporadas y festividades", "Servicio llave en mano de decoración"]
+    }
+    </script>
+  </Fragment>
   <SkipNav />
   <Navbar />
   <main id="main-content">
     <Hero />
     <Services />
     <Gallery />
-    <Benefits />
-    <Process />
     <Catalogs />
-    <!-- <Cases /> -->
+    <Process />
+    <Benefits />
     <Contact />
   </main>
   <Footer />

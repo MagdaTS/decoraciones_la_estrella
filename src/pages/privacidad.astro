@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SkipNav from '../components/SkipNav.astro';
+import Navbar from '../components/Navbar.astro';
+import PrivacyContent from '../components/PrivacyContent.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import ScrollTop from '../components/ScrollTop.astro';
+
+// Metadata and last-updated date
+const pageTitle = 'Aviso de Privacidad | Decoraciones La Estrella';
+const pageDescription = 'Aviso de privacidad de Decoraciones La Estrella. Conozca cómo recabamos, utilizamos y protegemos sus datos personales de conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).';
+const lastUpdated = '24 de junio de 2026';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <SkipNav />
+  <Navbar />
+  <main id="main-content">
+    <PrivacyContent lastUpdated={lastUpdated} />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+  <ScrollTop />
+</Layout>

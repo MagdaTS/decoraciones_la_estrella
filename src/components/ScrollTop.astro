@@ -1,0 +1,64 @@
+---
+---
+
+<button 
+  class="scroll-top scroll-top-btn fixed bottom-6 left-6 w-12 h-12 rounded-full bg-primary text-foreground flex items-center justify-center text-xl shadow-[0_4px_12px_rgba(201,160,32,0.3)] z-[100] transition-all duration-200 opacity-0 translate-y-5 pointer-events-none hover:scale-110 hover:bg-primary-dark"
+  id="scrollTop"
+  aria-label="Volver arriba"
+>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<style>
+  .scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  
+  /* Print styles */
+  @media print {
+    .scroll-top {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const scrollTopBtn = document.getElementById('scrollTop');
+    if (!scrollTopBtn) return;
+
+    const showThreshold = 500;
+
+    function toggleVisibility() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY > showThreshold) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
+
+    // Throttled scroll
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          toggleVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    toggleVisibility();
+  })();
+</script>

@@ -1,0 +1,89 @@
+---
+---
+
+<a 
+  href="https://wa.me/525636429614?text=Hola,%20me%20interesa%20una%20propuesta%20de%20decoración" 
+  class="whatsapp-float fixed bottom-6 right-6 w-[60px] h-[60px] rounded-full bg-whatsapp text-white flex items-center justify-center text-[1.75rem] shadow-[0_4px_20px_rgba(37,211,102,0.4)] z-[100] transition-all duration-200 hover:scale-110 hover:shadow-[0_6px_24px_rgba(37,211,102,0.5)]"
+  id="whatsappFloat"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Enviar mensaje por WhatsApp"
+>
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  <span class="whatsapp-tooltip absolute bottom-[70px] right-0 bg-surface-dark text-white px-3 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 translate-y-2.5 transition-all duration-200 pointer-events-none" id="whatsappTooltip">
+    ¡Escríbenos!
+  </span>
+</a>
+
+<style>
+  /* Pulse animation - desktop only */
+  @media (min-width: 768px) {
+    .whatsapp-float {
+      animation: whatsapp-pulse 5s infinite;
+    }
+  }
+  
+  @keyframes whatsapp-pulse {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+    }
+  }
+  
+  /* Tooltip arrow */
+  .whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--color-surface-dark);
+  }
+  
+  /* Tooltip visible state */
+  .whatsapp-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Print styles */
+  @media print {
+    .whatsapp-float {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const tooltip = document.getElementById('whatsappTooltip');
+    if (!tooltip) return;
+
+    // Show tooltip on page load
+    setTimeout(function() {
+      tooltip?.classList.add('visible');
+    }, 1000);
+
+    // Hide tooltip on first scroll
+    let hasScrolled = false;
+    function hideTooltip() {
+        if (!hasScrolled) {
+        tooltip?.classList.remove('visible');
+        hasScrolled = true;
+        window.removeEventListener('scroll', hideTooltip);
+      }
+    }
+
+    window.addEventListener('scroll', hideTooltip, { passive: true } as EventListenerOptions);
+
+    // Also hide after 5 seconds
+    setTimeout(function() {
+      tooltip?.classList.remove('visible');
+    }, 5000);
+  })();
+</script>

@@ -1,0 +1,168 @@
+---
+// Privacy policy legal content component
+// Implements the full Aviso de Privacidad required by Mexican LFPDPPP
+
+interface Props {
+  lastUpdated: string;
+}
+
+const { lastUpdated } = Astro.props;
+
+// Responsible party (persona física) — datos reales confirmados por el usuario
+const responsableNombre = 'C. Magda Guadalupe Tolentino Soria';
+const responsableRfc = 'TOSM000210NEA';
+const marcaComercial = 'Decoraciones La Estrella';
+
+// Domicilio fiscal registrado ante el SAT para el RFC TOSM000210NEA
+// Estructura legible construida a partir de los campos oficiales del SAT
+const domicilioFiscal = {
+  calle: 'Dr. Gustavo Baz',
+  numeroExterior: '19',
+  numeroInterior: 'S/N',
+  colonia: 'Centro',
+  localidad: 'San Francisco Soyaniquilpan',
+  municipio: 'Soyaniquilpan de Juárez',
+  estado: 'Estado de México',
+  codigoPostal: '54280',
+  entreCalle: 'Pocitos',
+};
+
+const domicilioLinea = `Calle ${domicilioFiscal.calle} No. ${domicilioFiscal.numeroExterior}${domicilioFiscal.numeroInterior !== 'S/N' ? ' Int. ' + domicilioFiscal.numeroInterior : ''}, Colonia ${domicilioFiscal.colonia}, ${domicilioFiscal.localidad}, ${domicilioFiscal.municipio}, ${domicilioFiscal.estado}, C.P. ${domicilioFiscal.codigoPostal}`;
+
+// Datos de contacto del responsable para derechos ARCO y atención
+const contactoEmail = 'decoracion.laestrella.ventas@gmail.com';
+const contactoTelefono = '+52 563 642 9614';
+---
+
+<section id="privacidad" class="py-20 md:py-28 bg-white" aria-labelledby="privacidad-title">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-2 px-3 py-1 bg-primary/10 rounded-full">
+        Legal
+      </span>
+      <h1 id="privacidad-title" class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        Aviso de Privacidad
+      </h1>
+      <p class="text-lg text-muted-foreground leading-relaxed">
+        Última actualización: {lastUpdated}
+      </p>
+    </div>
+
+    <!-- Legal content: narrower container for readability -->
+    <div class="max-w-[800px] mx-auto text-base text-foreground/80 leading-relaxed">
+
+      <!-- Intro -->
+      <p class="mb-6">
+        En cumplimiento con lo dispuesto por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y su Reglamento, <strong class="text-foreground">{responsableNombre}</strong> (en adelante &ldquo;el Responsable&rdquo;), quien opera bajo la marca comercial <strong class="text-foreground">&ldquo;{marcaComercial}&rdquo;</strong>, con domicilio en <strong class="text-foreground">{domicilioLinea}</strong>, pone a su disposición el presente Aviso de Privacidad.
+      </p>
+
+      <!-- 1. Identidad y domicilio del responsable -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">1. Identidad y domicilio del responsable</h2>
+      <p class="mb-4">El responsable del tratamiento de sus datos personales es <strong class="text-foreground">{responsableNombre}</strong>, quien opera bajo la marca comercial <strong class="text-foreground">&ldquo;{marcaComercial}&rdquo;</strong>, con RFC <strong class="text-foreground">{responsableRfc}</strong>, con domicilio fiscal ubicado en:</p>
+      <p class="mb-4 font-semibold text-foreground">{domicilioLinea}</p>
+      <p class="mb-4">Entre calles de referencia: <strong class="text-foreground">{domicilioFiscal.entreCalle}</strong>.</p>
+
+      <!-- 2. Datos personales que recabamos -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">2. Datos personales que recabamos</h2>
+      <p class="mb-4">Para los fines señalados en el presente aviso, el Responsable puede recabar los siguientes datos personales de manera directa a través de nuestro formulario de contacto:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Nombre completo</li>
+        <li>Dirección de correo electrónico</li>
+        <li>Número de teléfono</li>
+        <li>Empresa u organización</li>
+        <li>Mensaje o consulta</li>
+      </ul>
+      <p class="mb-4">En el caso de clientes prospecto, podemos recabar adicionalmente:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Información del negocio o proyecto</li>
+        <li>Requerimientos y especificaciones del servicio solicitado</li>
+      </ul>
+
+      <!-- 3. Datos personales sensibles -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">3. Datos personales sensibles</h2>
+      <p class="mb-4">El Responsable <strong class="text-foreground">no recaba datos personales sensibles</strong> a través de este sitio web ni por ningún otro medio.</p>
+
+      <!-- 4. Finalidades del tratamiento -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">4. Finalidades del tratamiento</h2>
+      <p class="mb-4">Los datos personales que recabamos serán tratados para las siguientes finalidades:</p>
+
+      <h3 class="text-xl font-semibold text-foreground mt-8 mb-3">Finalidades primarias (necesarias para el servicio)</h3>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Atender y dar seguimiento a sus solicitudes de información y cotizaciones</li>
+        <li>Proveer los servicios contratados</li>
+        <li>Facturación y cobranza de los servicios</li>
+        <li>Dar seguimiento post-servicio para asegurar su satisfacción</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold text-foreground mt-8 mb-3">Finalidades secundarias (requieren consentimiento)</h3>
+      <p class="mb-4">Las siguientes finalidades no son necesarias para el servicio, pero nos permiten brindarle una mejor atención. Usted puede oponerse a ellas en cualquier momento:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Envío de comunicaciones promocionales y de marketing</li>
+        <li>Envío de boletines informativos (newsletters)</li>
+        <li>Realización de encuestas de satisfacción</li>
+        <li>Información sobre nuevos servicios, promociones y temporadas</li>
+      </ul>
+
+      <!-- 5. Mecanismos para limitar el uso o divulgación de datos -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">5. Mecanismos para limitar el uso o divulgación de datos</h2>
+      <p class="mb-4">El Responsable cuenta con medidas de seguridad administrativas, técnicas y físicas para proteger sus datos personales. Para limitar el uso o divulgación de sus datos, usted puede:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Solicitar su inscripción en el listado de exclusión publicitario, enviando un correo electrónico a <strong class="text-foreground">{contactoEmail}</strong></li>
+        <li>Manifestar su negativa para el tratamiento de finalidades secundarias al momento de proporcionar sus datos</li>
+      </ul>
+
+      <!-- 6. Transferencias de datos -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">6. Transferencias de datos</h2>
+      <p class="mb-4">El Responsable <strong class="text-foreground">no transfiere datos personales a terceros para finalidades propias</strong>, salvo en los siguientes supuestos:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Cuando sea requerido por autoridad competente en términos de la legislación aplicable</li>
+        <li>Cuando la transferencia esté prevista en alguno de los supuestos del artículo 37 de la LFPDPPP</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold text-foreground mt-8 mb-3">6.1 Encargados del tratamiento</h3>
+      <p class="mb-4">El Responsable utiliza el servicio <strong class="text-foreground">Formspree</strong> (&ldquo;el Encargado&rdquo;) como proveedor de infraestructura para el formulario de contacto de este sitio web. Formspree actúa exclusivamente como encargado del tratamiento de datos personales en los términos del artículo 50 del Reglamento de la LFPDPPP, procesando los datos introducidos por el usuario con la única finalidad de recibir y reenviar las solicitudes de contacto al Responsable.</p>
+      <p class="mb-4">Para este fin, los datos personales proporcionados a través del formulario de contacto pueden ser transferidos y almacenados en servidores ubicados fuera de México (Estados Unidos de América). Le recomendamos consultar la política de privacidad de Formspree en <a href="https://formspree.io/legal/privacy-policy/" class="text-primary underline hover:text-primary-dark transition-colors" target="_blank" rel="noopener noreferrer">https://formspree.io/legal/privacy-policy/</a> para conocer los detalles sobre el tratamiento de datos que dicho proveedor realiza.</p>
+
+      <!-- 7. Cookies y tecnologías similares -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">7. Cookies y tecnologías similares</h2>
+      <p class="mb-4">Este sitio web puede utilizar cookies y tecnologías similares para mejorar la experiencia de navegación. Las cookies son pequeños archivos de texto que se almacenan en su dispositivo y que nos permiten recordar sus preferencias.</p>
+      <p class="mb-4">Usted puede configurar su navegador para rechazar todas las cookies o para que le notifique cuando se envía una cookie. Consulte la sección de ayuda de su navegador para conocer el procedimiento específico.</p>
+
+      <!-- 8. Medios para ejercer derechos ARCO -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">8. Medios para ejercer derechos ARCO</h2>
+      <p class="mb-4">Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales (derechos ARCO). Para ejercer estos derechos, deberá enviar una solicitud por escrito al Responsable, cumpliendo con los requisitos establecidos en la LFPDPPP:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Dirigir la solicitud al correo electrónico: <strong class="text-foreground">{contactoEmail}</strong></li>
+        <li>Incluir su nombre completo y documento de identificación oficial (para acreditar su identidad)</li>
+        <li>Describir de manera clara y precisa los datos respecto de los cuales busca ejercer su derecho</li>
+        <li>Proporcionar un domicilio o medio para recibir la respuesta</li>
+      </ul>
+      <p class="mb-4">El Responsable dará respuesta a su solicitud en un plazo máximo de <strong class="text-foreground">20 días hábiles</strong> contados a partir de la recepción de la solicitud completa, de conformidad con lo establecido en la LFPDPPP.</p>
+
+      <!-- 9. Revocación del consentimiento -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">9. Revocación del consentimiento</h2>
+      <p class="mb-4">Usted puede revocar el consentimiento que haya otorgado para el tratamiento de sus datos personales en cualquier momento, siguiendo el mismo procedimiento descrito en la sección anterior. Sin embargo, es importante considerar que:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>La revocación no tendrá efectos retroactivos</li>
+        <li>En ciertos casos, la revocación del consentimiento podría implicar la imposibilidad de continuar prestando el servicio contratado</li>
+      </ul>
+
+      <!-- 10. Modificaciones al aviso de privacidad -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">10. Modificaciones al aviso de privacidad</h2>
+      <p class="mb-4">El Responsable se reserva el derecho de modificar el presente Aviso de Privacidad en cualquier momento. Cualquier modificación será comunicada a través de este sitio web. Le recomendamos revisar periódicamente este aviso para mantenerse informado sobre cómo protegemos sus datos personales.</p>
+
+      <!-- 11. Contacto -->
+      <h2 class="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-4">11. Contacto</h2>
+      <p class="mb-4">Para cualquier duda, aclaración o queja relacionada con el tratamiento de sus datos personales, puede contactarnos a través de los siguientes medios:</p>
+      <ul class="list-disc pl-6 mb-4 space-y-2">
+        <li>Responsable: <strong class="text-foreground">{responsableNombre}</strong></li>
+        <li>RFC: <strong class="text-foreground">{responsableRfc}</strong></li>
+        <li>Marca comercial: <strong class="text-foreground">{marcaComercial}</strong></li>
+        <li>Correo electrónico: <strong class="text-foreground">{contactoEmail}</strong></li>
+        <li>Teléfono: <strong class="text-foreground">{contactoTelefono}</strong></li>
+        <li>Domicilio: <strong class="text-foreground">{domicilioLinea}</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
